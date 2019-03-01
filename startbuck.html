@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>StartBuck</title>
+    <style>
+        #wrap{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        @media (min-width: 992px) { 
+            .side{
+                height: 100%;
+                position: fixed;
+            }
+            .content{
+                height: 100%;
+                position: absolute;
+                right: 0;
+                
+            }
+            
+            .header{
+                margin-top: 5px;
+                margin-left: 5px;
+                float: left;
+                height: 11%;
+                width: 100%;
+                padding: 5px;
+                /* background-color: red; */
+            }
+            .body{
+                height: 89%;
+                float: left;
+                
+
+                /* background-color: blue; */
+            }
+            .display{
+               
+                position: absolute;
+                left: 20%;
+                bottom: -450%;
+               
+            }
+            .img{
+            margin-top: -30%;
+            
+            }
+            .mp li:hover{
+            margin-top: 1%;
+            box-shadow: 2px 2px 2px  #aca9a9;
+            } 
+            .mp li{
+            list-style: none;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 2%;
+            }
+           
+            .mp img{
+                /* width: 298px;
+                height: 188px; */
+                width: 110%;
+                height: 110%;
+            }
+        } 
+        @media (min-width: 768px) { 
+            .side{
+                height: 13%;
+                
+            }
+            .content{
+                height: 87%;
+                
+            }
+            .header{
+                float: left;
+                height: 34%;
+                width: 100%;
+                padding: 5px;
+                /* background-color: red; */
+            }
+            .body{
+                height: 66%;
+                float: left; 
+                width: 100%;
+                padding: 10px;
+                /* background-color: blue; */
+            }
+            .down{
+                width: 100%; 
+                 height: 100%;
+                 
+                
+            }
+            .carousel.slide{
+                width: 100%;
+            }
+            /* .content{
+               display: none;
+            } */
+            .down-header{
+               padding: 10px;
+            }
+            .down-body{
+                padding: 10%;
+                padding-top: 20%;
+            }
+            .img{
+            margin-top: -30%;
+            width: 70%;
+            height: 70%;
+            }
+            .pic ul li{
+            float: left;
+            list-style: none;
+            margin-left: -2%;
+            }
+            .mp li{
+            list-style: none;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 2%;
+            }
+            .mp img{
+                /* width: 120px;
+                height: 76px; */
+                width: 110%; 
+                 height: 110%;
+            }
+            /* .mp .row{
+            padding: 0;
+             } */
+            .mp li:hover{
+            margin-top: 1%;
+            box-shadow: 2px 2px 2px  #aca9a9;
+             } 
+        } 
+        .start{
+            float: left;
+        }
+        .primary ul li{
+            float: left;
+            list-style: none;
+            font-size: 20px;
+            font-weight: 600;
+            margin-left: 24px;
+            margin-top: 5px;
+            color: black;
+        }
+        a:visited{color:black;}
+        .more{
+            float: right;
+            margin-top: 5px;
+        }
+        .display-1{
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 140%;
+            margin-bottom: 12px;
+            
+        }
+        footer span{
+            font-size: 18px;
+        }
+        
+        
+        .close{
+            font-size: 30px;
+            margin-right: 15px;
+        }
+        .down-content ul{
+            list-style: none;
+            font-weight: 600;
+            font-size: 18px;
+            
+        }
+        .down-content ul li{
+            margin-top: 10px;
+
+        }
+        .content{
+            background-color:#f1eded;
+            margin: 0;
+            padding: 0;
+        }
+        
+      
+        .del{
+            float: left;
+            padding: 20px;
+            background-color: white;
+            width: 100%;
+        }
+        .del .del-p{
+            margin-left: 20px;
+            float: left;
+            
+        }
+        .del img{
+            float: left;
+            margin-left: 50px;
+        }
+        .pic{
+            float: left;
+        }
+        .wrapper{
+            text-align: center;
+            width: 100%;
+
+        }
+        .pic-del{
+            float: left;
+        }
+        .pic ul li a {
+            box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 2px;
+            display: inline-block;
+            position: relative;
+            padding: 0 6px;
+            text-align: center;
+            width: 100%;
+           
+            
+        }
+        .pic ul{
+            margin-top: 10%;
+        }
+        
+        
+        .pic ul li:hover{
+            margin-top: -1%;
+            box-shadow: 5px 5px 5px  #aca9a9; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="wrap">
+        <div class="row">
+            <div class="side col-sm-12 col-lg-4">
+               <div class="up">
+                    <header class="header">
+                            <div class="navs">   
+                                 <a href="" class="start"><img src="imgs/tu.png" alt="星巴克"></a>               
+                                <div class="primary">
+                                     <ul>      
+                                         <li><a href="">门店</a></li>
+                                         <li><a href="">我的账户</a></li>
+                                         <li><a href="">菜单</a></li>
+                                     </ul>
+                                </div>
+                                <a href="" class="more"><img src="imgs/more.png" alt="更多"></a>
+                            </div>
+                         </header>
+                         <div class="body">
+                             <span class="display">
+                                 <div class="display-1">
+                                     <span>心情惬意，来杯咖啡吧 ☕</span>
+                                 </div> 
+                                 <footer>
+                                        <a href="#">
+                                            <img src="imgs/signin.png" alt="登陆">
+                                            <span>登录</span>
+                                        </a>
+                                        <a href="#">
+                                            <img src="imgs/account.png" alt="">
+                                        </a>
+                                 </footer>
+                             </span>    
+                         </div>
+               </div>
+               <div class="down">
+                 <header class="down-header">
+                    <div class="down-title">
+                        <img src="imgs/tu.png" alt="星巴克">
+                        <button type="button" class="btn-lg close" aria-label="Close">
+                            <span id="close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                 </header>
+                 <div class="down-body">
+                     <div class="down-content">
+                         <ul>
+                             <li>门店</li>
+                             <li>星享俱乐部</li>
+                             <li>菜单</li>
+                             <li><img src="imgs/line.png" alt=""></li>
+                             <li>星巴克移动应用</li>
+                             <li>星礼卡</li>
+                             <li>星巴克臻选</li>
+                             <li>专星送</li>
+                             <li>咖啡星讲座</li>
+                             <li>上海烘培工坊</li>
+                             <li>关于星巴克</li>
+                             <li>帮助中心</li>
+                             <li><img src="imgs/line.png" alt=""></li>
+                         </ul>
+
+                     </div>
+                     <footer class="sign">
+                        <a href="#">
+                            <img src="imgs/signin.png" alt="登陆">
+                            <span>登录</span>
+                        </a>
+                        <a href="#">
+                            <img src="imgs/account.png" alt="">
+                        </a>
+                     </footer>
+                 </div>
+               </div>
+            </div>
+            <div class="content col-sm-12 col-lg-8">
+                <!-- 轮播图 -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="imgs/kv1.jpg" alt="1">                              
+                            </div>
+                            <div class="item">
+                                <img src="imgs/kv1.jpg" alt="2">      
+                            </div>
+                            <div class="item">
+                                    <img src="imgs/kv1.jpg" alt="3">                                   
+                            </div>
+                        </div>
+                      
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                </div>
+                <!-- 轮播图结束 -->
+                <div class="mp container">
+                    <ul class="row">
+                        <li class="col-sm-3 col-lg-3"> <a href="#" ><img src="imgs/k1.jpg" alt=""></a></li>
+                        <li class="col-sm-3 col-lg-3"><a href="#" ><img src="imgs/k2.jpg" alt=""></a></li>
+                        <li class="col-sm-3 col-lg-3"><a href="#"><img src="imgs/k3.jpg" alt=""></a></li>
+                    </ul>
+
+                </div>
+                <div class="del">
+                    <div class="del-p">
+                        <h3>星享俱乐部</h3><br><span>开启您的星享之旅，星星越多，会员等级越高，<br>好礼越多，<a href="#">了解更多></a></span>
+                       <div> <img src="imgs/s.png" alt=""></div>
+                    </div>
+                    <img src="imgs/t.png" alt="">
+                </div>
+                <section class="pic">
+                   <div class="wrapper">
+                       <h2 class="wrapper-mobile">星巴克精选</h2>
+                       <p class="light wrapper-mobile">在星巴克天猫旗舰店发现更多咖啡心意</p>
+                       <div class="container">
+                            <ul class="pic-del row">
+                                <li class="col-sm-3 col-lg-3">
+                                    <a href="#">
+                                    <img class="img" src="imgs/tmall-card-01.png" alt="">
+                                    <p>
+                                        <strong>会员星礼包</strong>
+                                    </p>
+                                    <p>
+                                        星享卡新升级<br>
+                                        "更多心意好礼"
+                                    </p>
+                                    <p>
+                                        了解更多>
+                                    </p>
+                                    </a>
+                                </li>
+                                <li class="col-sm-3 col-lg-3">
+                                    <a href="#">
+                                    <img class="img" src="imgs/tmall-card-02.png" alt="">
+                                    <p>
+                                        <strong>星礼卡</strong>
+                                    </p>
+                                    <p>
+                                        用一份心礼<br>
+                                        让心意相随
+                                    </p>
+                                    <p>
+                                        了解更多>
+                                    </p>
+                                    </a>
+                                </li>
+                                <li class="col-sm-3 col-lg-3">
+                                    <a href="#">
+                                    <img class="img" src="imgs/tmall-card-01.png" alt="" >
+                                    <p>
+                                        <strong>电子产品券</strong>
+                                    </p>
+                                    <p>
+                                        心意<br>
+                                        从这一杯开始
+                                    </p>
+                                    <p>
+                                        了解更多>
+                                    </p>
+                                    </a>
+                                </li>
+                                <li class="col-sm-3 col-lg-3">
+                                    <a href="#">
+                                    <img class="img" src="imgs/tmall-card-02.png" alt="">
+                                    <p>
+                                        <strong>咖啡生活</strong>
+                                    </p>
+                                    <p>
+                                        星巴克<br>
+                                        用心制作
+                                    </p>
+                                    <p>
+                                        了解更多>
+                                    </p>
+                                    </a>
+                                </li>
+                            </ul>                     
+                        </div>  
+                </div>
+                </section>
+            </div> 
+        </div>     
+    </div>
+    
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+       
+            // $(function(){
+            //     // $('.up').show();
+            //     // $('.down').hide();
+            //     // $('.content').show();
+            //     if($(window).width()>=992){
+                    
+                    
+            //     $('#close').click(function(){
+            //         $('.down').hide();
+            //         $('.up').show();
+            //         alert(3)
+            //        }) 
+            //     $('.more').click(function(){
+            //         $('.down').show();
+            //         $('.up').hide();
+            //         alert(4)
+            //     }) 
+            //     }
+               
+
+            //     if($(window).width()>=768 && $(window).width()<992){
+                   
+
+            //         $('.more').click(function(){
+            //             $('.down').show();
+            //             $('.up').hide();
+            //             $('.content').hide();
+            //             alert(1)
+            //         }) 
+            //         $('#close').click(function(){
+            //             $('.down').hide();
+            //             $('.up').show();
+            //             $('.content').show();
+            //             alert(2)
+            //         })
+            //     }
+            // });
+            window.onload=function(){
+                var more=document.querySelector('.more');
+            var close=document.querySelector('#close');
+            var down=document.querySelector('.down');
+            var up=document.querySelector('.up');
+            var content=document.querySelector('.content');
+            var w= document.body.clientWidth;
+            
+            if(w>=768 && w<992){
+                    down.style.display='inline';
+                    up.style.display='none';
+                    content.style.display='none';
+                more.onclick=function(){
+                    down.style.display='inline';
+                    up.style.display='none';
+                    content.style.display='none';
+                    
+                }   
+                close.onclick=function(){
+                    down.style.display='none';
+                    up.style.display='inline';
+                    content.style.display='inline';
+                }      
+            }else if(w>=992){
+                    down.style.display='inline';
+                    up.style.display='none';
+                more.onclick=function(){
+                    down.style.display='inline';
+                    up.style.display='none';
+                   
+                }   
+                close.onclick=function(){
+                    down.style.display='none';
+                    up.style.display='inline';
+                   
+                }     
+            }
+            }
+            
+        </script>
+</body>
+</html>
