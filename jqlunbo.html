@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       
+        .view{
+            width: 850px;
+            height: 538px;
+            border: 1px solid black;
+            margin: 0 auto;
+            margin-top: 200px;
+            overflow: hidden;
+        }
+        
+        .pic{
+            width: 4460px;
+            height: 538px;
+        }
+        .pic li{
+            float: left;
+            list-style: none;
+            
+        }
+        .btn{
+            position: absolute;
+            top:45%;
+            z-index: 2;
+            width: 850px;
+            display: none;
+        }
+        .btn div{        
+            width: 40px;
+            height: 60px;
+            background-color: rgb(39, 32, 32,.7);
+            text-align: center;
+            line-height: 60px;
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .btn div:hover{
+            background-color: rgb(39, 32, 32,.9);
+            cursor: pointer;
+        }
+        .btn-left{
+            float: left;
+            margin-left: 20px;
+        }
+        .btn-right{
+            float: right;
+            margin-right: 20px;
+        }
+        .point{
+            position: absolute;
+            width: 100px;
+            height: 10px;
+            z-index: 2;
+            bottom: 23%;
+            left: 45%;
+        }
+        .point span{
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid rgb(199, 66, 66);
+            background-color: wheat;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .point .on{
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="view">
+                <ul class="pic">
+                    <li><img src="imgs/k1.jpg" alt=""></li>
+                    <li><img src="imgs/k2.jpg" alt=""></li>
+                    <li><img src="imgs/k3.jpg" alt=""></li>
+                    <li><img src="imgs/k1.jpg" alt=""></li>
+                </ul>
+                <div class="btn">
+                    <div class="btn-left">&lt;</div>
+                    <div class="btn-right">&gt;</div>   
+                </div>
+                <div class="point">
+                    <span class="on"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+         $(function(){ 
+            var ps=$('.point span');
+            var view=$('.view');
+            var btn=$('.btn');
+            var btnleft=$('.btn-left');
+            var btnright=$('.btn-right');
+            var pic=$('.pic');
+            var pics=$('.pic li');
+            var left=parseInt(pic.css('marginLeft'));
+            var index=0;
+            var flag=true;
+            
+             //鼠标移入移出   
+             view.mouseover(function(){
+                 flag=false;
+                 clearInterval(timer);
+                btn.css('display','block');
+             })   
+             view.mouseout(function(){
+                 flag=true;
+                 autoGo(flag);
+                btn.css('display','none');
+             }) 
+             
+             //点击左键                     
+             btnleft.click(function(){   
+                if(index==0){
+                    index=pics.length-1;
+                    pic.css('marginLeft',-(pics.length-1)*850+'px');
+                }
+                index--;
+                showP(index);  
+            })   
+            //点击右键
+             btnright.click(function(){       
+                index++;
+                showP(index);   
+            })   
+            //点击小点
+            ps.click(function(){
+                index=ps.index($(this));
+                showP(index);
+                
+            })
+            //自动播放  
+            function autoGo(y){
+                if(y){
+                   timer= setInterval(go,2000);
+                }
+            }
+            autoGo(flag);
+
+             function go(){
+                 index++;
+                 showP(index);
+             }
+            
+            //图片对应的点
+            function showP(num){
+                ps.eq(num).addClass('on').siblings().removeClass('on');
+                pic.animate({marginLeft:-num*850},1000,function(){
+                    if(index==pics.length-1){
+                       index=0;
+                       pic.css('marginLeft','0px');
+                       ps.eq(0).addClass('on').siblings().removeClass('on');
+                    }
+                })
+            }
+            
+
+         })
+    </script>
+</body>
+</html>
