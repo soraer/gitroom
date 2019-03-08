@@ -1,0 +1,11 @@
+
+
+<div class="ipt">
+  <input class="btn" type="button" value="路由跳转" [routerLink]="[ '/router']" >
+<input  type="text"  [value]="shengValue" appColor>
+<select name="shengValue" id="sheng" [(ngModel)]="shengValue" size="2">
+<option *ngFor="let sheng of shengs" [value]="sheng" >{{sheng}}</option> 
+</select>
+<app-shi [shengValue]="shengValue" (Event1)="getData($event)" (Event2)="getShi($event)"></app-shi>
+<app-qu [shiValue]="shiValue" [shiValue]="shiValue" (Event3)="getQu($event)" [shengValue]="shengValue"></app-qu>
+</div>

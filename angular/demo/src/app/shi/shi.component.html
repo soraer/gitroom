@@ -1,0 +1,5 @@
+
+<select name="shiValue" id="shi" [(ngModel)]="shiValue"  size="2" (click)="choose()"><!---->
+  <option *ngFor="let shi of shis" [value]="shi" >{{shi}}</option> 
+  </select>
+  
